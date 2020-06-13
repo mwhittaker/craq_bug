@@ -4,16 +4,6 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 
-\begin{document}
-\begin{center}
-  \Large CRAQ Garbage Collection Bug
-\end{center}
-
-We describe a very minor bug in CRAQ's garbage collection. Consider the CRAQ
-deployment with three replicas shown below, where $r_0$ is the head and $r_2$
-is the tail. Initially, all three replicas store a single version (i.e.\
-version $0$) of object $x$, which has value a.
-
 \tikzstyle{replica}=[draw, circle, thick]
 \tikzstyle{write}=[-latex, blue, thick]
 \tikzstyle{ack}=[-latex, blue, thick, dashed]
@@ -41,6 +31,15 @@ version $0$) of object $x$, which has value a.
   \end{tabular}
 }
 
+\begin{document}
+\begin{center}
+  \Large CRAQ Garbage Collection Bug
+\end{center}
+
+We describe a very minor bug in CRAQ's garbage collection. Consider the CRAQ
+deployment with three replicas shown below, where $r_0$ is the head and $r_2$
+is the tail. Initially, all three replicas store a single version (i.e.\
+version $0$) of object $x$, which has value a.
 \begin{center}
   \begin{tikzpicture}[xscale=3]
     \drawchain{}
@@ -116,5 +115,4 @@ version (actually, no node has this version), and is stuck.
     \draw[version, bend right=60] (r2) to (r0);
   \end{tikzpicture}
 \end{center}
-
 \end{document}
